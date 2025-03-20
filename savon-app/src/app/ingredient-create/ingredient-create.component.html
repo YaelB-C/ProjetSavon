@@ -1,0 +1,46 @@
+<form (ngSubmit)="onSubmit()" #ingredientForm="ngForm">
+    <!-- Champ Nom -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Nom de l'ingrédient</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="name" 
+        name="name" 
+        [(ngModel)]="ingredient.name" 
+        required
+        minlength="3"
+      >
+      <div *ngIf="ingredientForm.controls['name']?.invalid && ingredientForm.controls['name']?.touched" 
+           class="text-danger">
+        Le nom doit contenir au moins 3 caractères.
+      </div>
+    </div>
+  
+    <!-- Champ Quantité -->
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantité (g)</label>
+      <input 
+        type="number" 
+        class="form-control" 
+        id="quantity" 
+        name="quantity" 
+        [(ngModel)]="ingredient.quantity" 
+        required
+        min="1"
+      >
+      <div *ngIf="ingredientForm.controls['quantity']?.invalid && ingredientForm.controls['quantity']?.touched" 
+           class="text-danger">
+        La quantité doit être supérieure à 0.
+      </div>
+    </div>
+  
+    <!-- Bouton de soumission -->
+    <button 
+      type="submit" 
+      class="btn btn-primary" 
+      [disabled]="!ingredientForm.valid"
+    >
+      Enregistrer
+    </button>
+  </form>

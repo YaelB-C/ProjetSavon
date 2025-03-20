@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Ingredient } from '../../models/models/Ingredient';
-import { IngredientService } from '../../../services/ingredient.service';
+import { IngredientService } from '../../services/ingredient.service';
+
 
 @Component({
   selector: 'app-ingredients',
