@@ -1,57 +1,44 @@
+html, body {
+  height: 100%; /* Assure que le body prend toute la hauteur de la fenêtre */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1; /* Le contenu prend tout l'espace disponible */
+  padding: 20px; /* Ajoute un peu d'espace autour du contenu */
+}
+
 footer {
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 20px;
-  }
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+}
 
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  .logo-area .logo {
-    height: 50px;
-    width: auto;
-  }
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
 
-  .links-area {
-    display: flex;
-    gap: 20px;
-  }
+footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
 
-  .links-area a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-  }
+footer a {
+  color: white;
+  text-decoration: none;
+}
 
-  .links-area a:hover {
-    color: #1e90ff;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .footer-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .logo-area {
-      margin-bottom: 10px;
-    }
-
-    .links-area {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
-  footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 0.9em;
-    color: #777;
+footer a:hover {
+  text-decoration: underline;
 }

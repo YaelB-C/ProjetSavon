@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -8,13 +8,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RadarChartComponent } from './shared/radar-chart/radar-chart.component';
+import { AproposComponent } from './pages/apropos/apropos.component';
+import { RecetteComponent } from './pages/recette/recette.component';
 import { IngredientsComponent } from './pages/ingredients/ingredients.component';
-import { RadarChartComponent } from './components/radar-chart/radar-chart.component';
-import { IngredientCreateComponent } from './ingredient-create/ingredient-create.component';
-import { FormsModule } from '@angular/forms';
-import { IngredientListComponent } from './shared/ingredient-list/ingredient-list.component';
-import { IngredientFormComponent } from './shared/ingredient-form/ingredient-form.component';
-import { IngredientImportExportComponent } from './shared/ingredient-import-export/ingredient-import-export.component';
+import { ModalIngredientPickerComponent } from './shared/modal-ingredient-picker/modal-ingredient-picker.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RecettesCreateComponent } from './pages/recette-create/recette-create.component';
+
 
 @NgModule({
   declarations: [
@@ -23,17 +24,20 @@ import { IngredientImportExportComponent } from './shared/ingredient-import-expo
     FooterComponent,
     HomeComponent,
     PrivacyPolicyComponent,
+    AproposComponent,
     IngredientsComponent,
     RadarChartComponent,
-    IngredientCreateComponent
-    FormsModule,
-    IngredientListComponent,
-    IngredientFormComponent,
-    IngredientImportExportComponent,
+    RecetteComponent,
+    ModalIngredientPickerComponent,
+    RecettesCreateComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

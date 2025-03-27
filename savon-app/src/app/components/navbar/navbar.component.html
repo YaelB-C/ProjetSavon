@@ -1,52 +1,19 @@
 <nav class="navbar">
-    <div class="nav-container">
-        <div class="logo"><img src="https://ljules.github.io/sav-app/assets/adepro_logo_trans.png">
-        </div>
-        <ul class="nav-links">
-            <li><a routerLink="/">Accueil</a></li>
-            <li><a routerLink="/services">Services</a></li>
-            <li><a routerLink="/contact">Contact</a></li>
-            <li><a routerLink="Ingredients">Ingredients</a></li>
-        </ul>
+    <div class="navbar-container">
+      <img src="../../../assets/adepro_logo_trans4.png">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="Apropos">A Propos</a></li>
+        <li><a href="Recette">Recettes</a></li>
+        <li><a href="createRecette">Créer Recettes</a></li>
+        <li><a routerLink="ingredient">Ingrédients</a></li>
+        <li><a href="create">Créer Ingredient</a></li>
+        <li><a href="#">Contact</a></li>
+
+      </ul>
+      <div class="auth-buttons">
+        <button class="login-btn">Login</button>
+        <button class="signup-btn">Sign Up</button>
+      </div>
     </div>
-
-    <div class="top-bar-fluid container-fluid p-0">        
-        <div class="top-bar-content container-xl p-0">
-            <a  class="navbar-brand me-auto"
-                routerLink="home"
-                routerLinkActive="active">
-            </a>
-                
-            <!-- Menu utilisateur : -->
-            <div class="user-menu align-items-center me-3">
-            
-                <span class="user-name text-dark bg-light rounded-1 ps-2">
-                    John DOE
-                </span>
-
-                <!-- Bouton Dropdown Bootstrap -->
-                <button class="dropdown-btn rounded-pill dropdown-toggle"
-                        type="button"
-                        id="userDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                </button>
-
-                <!-- Contenu du menu dropdown -->
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                    <li><a  class="dropdown-item"
-                            routerLink="/login">Se connecter</a></li>
-                    <li><a  class="dropdown-item"
-                            routerLink="/account-manager">Mon compte</a></li>
-                    <li><a  class="dropdown-item"
-                            routerLink="/subscribe-page">Créer un compte</a></li>
-
-                    <!-- <li><hr class="dropdown-divider"></li> -->
-                    <!-- <li><a  class="dropdown-item text-danger"
-                            routerLink="#" (click)="logout()">Déconnexion</a></li> -->
-                </ul>
-
-            </div>
-        </div>
-    </div>   
-</nav>
+  </nav>

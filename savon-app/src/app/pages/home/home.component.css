@@ -1,61 +1,84 @@
-.home-page{
-  background-color: white;
-  box-shadow: 10px 10px 50px rgb(0, 0, 0, 0.5);
-  padding: 40px 40px 50px 50px; /* top | right | bottom | left */
-  margin-bottom: 0px;
+/* Général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
-  h1 {
-      font-weight: bold;
-      font-size: 2em;
-      text-align: center;
-      padding-bottom: 1.5em;
-  }
+/* Sections principales */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-  h2 {
-      font-size: 1.5em;
-      font-weight: bold;
-      padding-top: 0.8em;
-      padding-bottom: 0.5em;  
-      color: var(--green-charter);   
-  }
+/* Conteneur pour les images côte à côte */
+.image-container {
+    display: flex;
+    justify-content: space-between; /* Espacement entre les images */
+    gap: 20px; /* Optionnel, ajoute un espace entre les images */
+    margin-bottom: 20px; /* Espace sous les images */
+}
 
-  h3 {
-      font-size: 1.1em;
-      font-weight: bold;
-      padding-top: 0.8em;
-      padding-bottom: 0.2em;
-      color: var(--green-charter);
-  }
+.small-image {
+    max-width:500px; /* Largeur des images (vous pouvez ajuster selon vos préférences) */
+    height: auto; /* Garder les proportions */
+    display: block;
+}
 
-  h4 {
-      font-size: 1.0em;
-      font-weight: bold;
-      padding-top: 0.8em;
-      padding-bottom: 0.2em;
-      color: var(--green-charter);
-  }
+/* Titres et paragraphes */
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
 
-  p {
-      padding-left: 1em;
-      text-align: justify;
-  }
+h1 {
+    font-size: 2.5rem;
+    color: #f39c12;
+}
 
-  ul {
-      padding-left: 3.0em;
-  }
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
 
-  .icon {
-      color: var(--purple-charter);
-  }
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
 
-  a {
-      color: var(--purple-charter); /* Change la couleur des liens */
-      text-decoration: none; /* Supprime le soulignement */
-  }
-  
-  /* Pour changer la couleur au survol */
-  a:hover {
-      color: var(--green-charter); /* Change la couleur au survol */
-      text-decoration: underline; /* Ajoute un soulignement au survol si souhaité */
-  }
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    main {
+        width: 95%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .image-container {
+        flex-direction: column; /* Empiler les images en colonne sur petits écrans */
+    }
 }

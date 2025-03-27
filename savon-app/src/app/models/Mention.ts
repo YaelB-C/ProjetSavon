@@ -1,6 +1,8 @@
 import { Caracteristique } from "./Caracteristique";
 import { Resultat } from "./Resultat";
 
+
+
 /**
  * Représente une mention qualitative permettant d'apprécier un score
  * attribué à une caractéristique d'un ingrédient.

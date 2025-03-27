@@ -1,4 +1,4 @@
-import { LigneIngredient } from "./models/LigneIngredient";
+import { LigneIngredient } from "./LigneIngredient";
 
 export class RecetteDTO {
     id: number | null = null;

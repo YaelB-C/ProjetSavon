@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ingredient } from '../models/models/Ingredient';
+import { Ingredient } from '../models/Ingredient';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IngredientService {
+  addIngredient(newIngredient: Ingredient) {
+    return this.http.post<Ingredient>(`${this.apiUrl}/ingredient`, newIngredient);
+  }
   postIngredient(ingredient: Ingredient) {
     throw new Error('Method not implemented.');
   }

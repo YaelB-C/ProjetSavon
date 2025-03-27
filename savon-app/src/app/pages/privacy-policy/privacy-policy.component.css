@@ -1,28 +1,83 @@
+/* Général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Corps de la page */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 20px;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
     color: #333;
-}
-h1, h2, h3 {
-    color: #2c3e50;
-}
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #ffffff;
+    line-height: 1.6;
+    font-size: 16px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
 }
+
+/* Conteneur principal de la politique de confidentialité */
+.privacy-policy {
+    background-color: #fff;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres principaux */
+h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Titres secondaires */
+h2 {
+    color: #f39c12;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 5px;
+}
+
+/* Paragraphes */
+p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* Liste à puces */
 ul {
-    padding-left: 20px;
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Contact */
+strong {
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .privacy-policy {
+        padding: 20px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
 }

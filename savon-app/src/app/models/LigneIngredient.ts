@@ -32,4 +32,5 @@ export class LigneIngredient {
      * Recette à laquelle cet ingrédient est associé.
      */
     recette: Recette | null = null;
+  ingredientId: number | null= null;
 }

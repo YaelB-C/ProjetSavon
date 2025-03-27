@@ -1,5 +1,6 @@
-import { Resultat } from "./Resultat";
 import { Mention } from "./Mention";
+import { Resultat } from "./Resultat";
+
 
 /**
  * Représente une caractéristique d'une recette de savon.

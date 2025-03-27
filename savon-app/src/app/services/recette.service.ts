@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Recette } from '../models/models/Recette';
+import { Recette } from '../models/Recette';
 import { Observable } from 'rxjs';
 import { RecetteDTO } from '../models/RecetteDTO';
 
@@ -12,20 +12,20 @@ export class RecetteService {
   apiURL="http://localhost:8080/api-savon/v1"
   constructor(private http:HttpClient) { }
   
-  getAllRecettes(): Observable<RecetteDTO[]> {
-    return this.http.get<RecetteDTO[]>(this.apiURL);
+  getAllRecettes(): Observable<Recette[]> {
+    return this.http.get<Recette[]>(this.apiURL);
   }
 
-  getRecetteById(id: number): Observable<RecetteDTO> {
-    return this.http.get<RecetteDTO>(`${this.apiURL}/${id}`);
+  getRecetteById(id: number): Observable<Recette> {
+    return this.http.get<Recette>(`${this.apiURL}/${id}`);
   }
 
-  postRecetteDTO(recette: RecetteDTO): Observable<RecetteDTO> {
-    return this.http.post<RecetteDTO>(this.apiURL, recette);
+  postRecetteDTO(recette: RecetteDTO): Observable<Recette> {
+    return this.http.post<Recette>(this.apiURL, recette);
   }
 
-  putRecetteDTO(id: number, recette: RecetteDTO): Observable<RecetteDTO> {
-    return this.http.put<RecetteDTO>(`${this.apiURL}/${id}`, recette);
+  putRecetteDTO(id: number, recette: RecetteDTO): Observable<Recette> {
+    return this.http.put<Recette>(`${this.apiURL}/${id}`, recette);
   }
 
   deleteRecette(id: number): Observable<void> {
