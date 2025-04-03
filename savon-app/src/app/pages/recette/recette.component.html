@@ -1,118 +1,108 @@
+<!-- Affichage de l'indice INS moyen en haut de la page -->
+<div class="alert alert-info text-center" *ngIf="recettes.length > 0">
+  <h4 class="mb-0">Indice INS Moyen : {{ indiceINSMoyen ? (indiceINSMoyen | number:'1.1-1') : 'N/A' }}</h4>
+</div>
+
+<!-- Bouton pour supprimer toutes les recettes -->
+<div class="text-center mb-4">
+  <button class="btn btn-danger" (click)="supprimerToutesLesRecettes()">
+    Supprimer toutes les recettes
+  </button>
+</div>
+
+<!-- Titre de la liste des recettes -->
+<h2 class="mb-4 display-5">Liste des Recettes</h2>
+
 <!-- Affichage des cards des recettes -->
 <div class="container">
-    <div class="row">
-    <div *ngFor="let recette of recettes" class="col-12 col-md-6 col-lg-4">
-    <div class="card my-2 shadow">
-   
-    <!-- Titre de la recette -->
-    <div class="card-header">
-    <div class="card-title ms-2 my-2">
-    <h5 ><b>{{ recette.titre }}</b></h5>
+  <div class="row g-4">
+    <div *ngFor="let recette of recettes" class="col-12 col-md-6 col-lg-6 col-xl-4">
+      <div class="card h-100 shadow-lg">
+        
+        <!-- Entête de la carte -->
+        <div class="card-header py-3 bg-light">
+          <h4 class="card-title mb-0 fw-bold text-primary">{{ recette.titre }}</h4>
+        </div>
+
+        <!-- Graphique radar -->
+        <div class="px-3 pt-3">
+          <app-radar-chart
+            [title]="recette.titre"
+            [scores]="[
+              recette.resultats[2].score,
+              recette.resultats[3].score,
+              recette.resultats[4].score,
+              recette.resultats[5].score,
+              recette.resultats[6].score,
+              recette.resultats[7].score,
+              recette.resultats[8].score
+            ]">
+          </app-radar-chart>
+        </div>
+
+        <!-- Corps de la carte -->
+        <div class="card-body p-3">
+          <div class="card-text">
+            
+            <!-- Description -->
+            <div class="mb-3">
+              <p class="mb-2 h6">Description :</p>
+              <p class="mb-2 lead">{{ recette.description }}</p>
+            </div>
+
+            <!-- Caractéristiques -->
+            <div class="mb-3">
+              <p class="mb-2 h6">Caractéristiques :</p>
+              <table class="table table-borderless mb-0">
+                <tr *ngFor="let i of [0,2,4,6]">
+                  <td class="p-2 fs-5">
+                    <span class="text-muted">{{ recette.resultats[i].caracteristique?.nom }} :</span>
+                    <span class="fw-bold ms-2">{{ recette.resultats[i].score.toFixed(1) }}</span>
+                  </td>
+                  <td class="p-2 fs-5">
+                    <span class="text-muted">{{ recette.resultats[i+1].caracteristique?.nom }} :</span>
+                    <span class="fw-bold ms-2">{{ recette.resultats[i+1].score.toFixed(1) }}</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Composition -->
+            <div>
+              <p class="mb-2 h6">Composition :</p>
+              <div class="d-flex gap-4">
+                <div class="fs-5">
+                  <p class="mb-2">{{ recette.avecSoude ? 'Soude' : 'Potasse' }}</p>
+                  <p class="mb-2">{{ recette.qteAlcalin.toFixed(0) }}g</p>
+                  <p class="mb-2">{{ recette.apportEnEau.toFixed(0) }}g</p>
+                </div>
+                <div class="fs-5">
+                  <p class="mb-2 fst-italic">Corps gras :</p>
+                  <ul class="list-unstyled mb-2">
+                    <li *ngFor="let ligne of recette.ligneIngredients">
+                      {{ ligne.ingredient?.nom }} : {{ ligne.quantite }}g
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pied de carte -->
+        <div class="card-footer py-3 bg-light">
+          <div class="d-flex gap-3 justify-content-end">
+            <button class="btn btn-primary px-4">
+              <i class="bi bi-pen-fill me-2"></i>Modifier
+            </button>
+            <button class="btn btn-danger px-4">
+              <i class="bi bi-trash-fill me-2"></i>Supprimer
+            </button>
+          </div>
+        </div>
+
+      </div>
     </div>
-    </div>
-    <!-- Graphe radar de la recette : -->
-    <div>
-    <app-radar-chart
-    [title]="recette.titre"
-    [scores]="[recette.resultats[2].score,recette.resultats[3].score,recette.resultats[4].score,recette.resultats[5].score,recette.resultats[6].score,recette.resultats[7].score,recette.resultats[8].score]">
-    </app-radar-chart>
-    </div>
-   
-    <!-- Corps de texte principal de la card -->
-    <div class="card-body p-2">
-    <div class="card-text">
-    <div>
-    <p class="m-0"><b><u>Description :</u></b></p>
-    <p>{{ recette.description }}</p>
-    </div>
-    <div class="mt-2">
-    <b><u>Caractéristiques :</u></b>
-    <table>
-    <tr>
-    <td><b>- Sugraissage : </b>{{ recette.surgraissage
-   }}%</td>
-    <td><b>- {{
-   recette.resultats[0].caracteristique?.nom }} : </b>{{
-   recette.resultats[0].score.toFixed(1) }}</td>
-    </tr>
-    <tr>
-    <td><b>- {{
-   recette.resultats[1].caracteristique?.nom }} : </b>{{
-   recette.resultats[1].score.toFixed(1) }}</td>
-    <td><b>- {{
-   recette.resultats[2].caracteristique?.nom }} : </b>{{
-   recette.resultats[2].score.toFixed(1) }}</td>
-    </tr>
-    <tr>
-    <td><b>- {{
-   recette.resultats[3].caracteristique?.nom }} : </b>{{
-   recette.resultats[3].score.toFixed(1) }}</td>
-    <td><b>- Vol. mousse : </b>{{
-   recette.resultats[4].score.toFixed(1) }}</td>
-    </tr>
-    <tr>
-    <td><b>- Tenue mousse : </b>{{
-   recette.resultats[5].score.toFixed(1) }}</td>
-    <td><b>- {{
-   recette.resultats[6].caracteristique?.nom }} : </b>{{
-   recette.resultats[6].score.toFixed(1) }}</td>
-    </tr>   
-    <tr>
-    <td><b>- {{
-   recette.resultats[7].caracteristique?.nom }} : </b>{{
-   recette.resultats[7].score.toFixed(1) }}</td>
-    <td><b>- {{
-   recette.resultats[8].caracteristique?.nom }} : </b>{{
-   recette.resultats[8].score.toFixed(1) }}</td>
-    </tr>
-    </table>
-   
-    </div>
-    <div class="mt-2">
-    <b><u>Composition :</u></b>
-    <ul>
-    <li><b>Agent alcalin : </b>{{ recette.avecSoude ?
-   'Soude' : 'Potasse' }}</li>
-    <li><b>Quantité alcalin : </b> {{
-   recette.qteAlcalin.toFixed(0) }}g</li>
-    <li><b>Apport eau : </b> {{
-   recette.apportEnEau.toFixed(0) }}g</li>
-    <li class="mt-2"><u><b>Corps gras :</b></u></li>
-    <ul>
-    <div *ngFor="let ligne of recette.ligneIngredients">
-    <li
-   *ngIf="ligne.ingredient?.estCorpsGras">
-    {{ ligne.ingredient?.nom }} : {{
-   ligne.quantite }}g
-    </li>
-    </div>
-    </ul>
-   
-    <li class="mt-2"><u><b>Autre :</b></u></li>
-    <ul>
-    <div *ngFor="let ligne of
-   recette.ligneIngredients">
-    <li *ngIf="ligne.ingredient?.estCorpsGras
-   == false">
-    {{ ligne.ingredient?.nom }} : {{
-   ligne.quantite }}g
-    </li>
-    </div>
-    </ul>
-   
-    </ul>
-    </div>
-    </div>
-    </div>
-    <!-- Pied de page de la card -->
-    <div class="card-footer">
-    <a href="#" class="btn btn-info"><i class="bi bi-pen-fill me-1">
- 
-   </i>Modifier</a>
-    <button href="#" class="btn btn-danger"><i class="bi bi-trash-fill
-   me-1"></i>Supprimer</button>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+  </div>
+</div>

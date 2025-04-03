@@ -9,7 +9,7 @@ import { RecetteDTO } from '../models/RecetteDTO';
 })
 export class RecetteService {
 
-  apiURL="http://localhost:8080/api-savon/v1"
+  apiURL="http://localhost:8080/api-savon/v1/recette"
   constructor(private http:HttpClient) { }
   
   getAllRecettes(): Observable<Recette[]> {
@@ -30,5 +30,8 @@ export class RecetteService {
 
   deleteRecette(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiURL}/${id}`);
+  }
+  deleteAllRecette(): Observable<void> {
+    return this.http.delete<void>(`${this.apiURL}/all`);
   }
 }
